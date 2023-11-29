@@ -76,7 +76,36 @@ body,
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.form-group {
+  @apply mb-4 w-full;
+}
+
+.form-label {
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  line-height: 1.5
+  
+  @apply mb-0 w-full;
+}
+
+.form-input {
+  height: calc(1.5em + .75rem + 2px);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px rgb(54, 54, 54);
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  @apply w-full block py-1 px-3 text-base bg-transparent focus:outline-none; 
+}
+
+.btn {
+  @apply inline-block bg-[#700070] rounded text-white px-3 py-1;
 }
