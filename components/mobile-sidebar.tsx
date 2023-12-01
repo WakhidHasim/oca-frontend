@@ -10,16 +10,10 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import Sidebar from './sidebar';
-import { useEffect, useState } from 'react';
 
 const MobileSidebar = () => {
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return mounted && (
+  return (
     <Sheet>
       <SheetTrigger>
         <Button variant='ghost' size='icon' className='md:hidden'>
