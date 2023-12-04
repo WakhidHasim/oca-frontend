@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model WajibPajakOrangPribadi {
+  kodeWPOP               String  @id @map("kode_wpop") @db.VarChar(50)
+  nama                   String  @db.VarChar(100)
+  email                  String  @unique @db.VarChar(200)
+  password               String? @db.VarChar(255)
+  kewarganegaraan        String  @db.VarChar(5)
+  namaNegara             String  @map("nama_negara") @db.VarChar(100)
+  idOrangPribadi         String  @map("id_orang_pribadi") @db.VarChar(30)
+  namaKtp                String  @map("nama_ktp") @db.VarChar(100)
+  npwp                   String? @db.VarChar(30)
+  namaNpwp               String? @map("nama_npwp") @db.VarChar(100)
+  kotaNpwp               String? @map("kota_npwp") @db.VarChar(50)
+  bankTransfer           String? @map("bank_transfer") @db.VarChar(50)
+  noRekening             String? @map("no_rekening") @db.VarChar(30)
+  namaRekening           String? @map("nama_rekening") @db.VarChar(100)
+  nip                    String? @unique @db.VarChar(50)
+  statusPegawai          String  @map("status_pegawai") @db.VarChar(30)
+  fileFotoNpwp           String? @map("file_foto_npwp") @db.Text
+  fileFotoIdOrangPribadi String  @map("file_foto_id_orang_pribadi") @db.Text
+  fileFotoBuktiRekening  String? @map("file_foto_bukti_rekening") @db.Text
+  isApproved             Boolean @default(false) @map("is_approved")
+
+  @@map("wajib_pajak_orang_pribadi")
+}

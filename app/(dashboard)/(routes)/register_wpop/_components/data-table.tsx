@@ -25,6 +25,8 @@ import {
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import Link from 'next/link';
+import { PlusCircle } from 'lucide-react';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -58,13 +60,22 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className='flex items-center py-4'>
+        <Link href='/register_wpop/create'>
+          <Button
+            variant='default'
+            className='bg-blue-600 text-white hover:bg-blue-500 '
+          >
+            <PlusCircle className='h-4 w-4 mr-2' />
+            New course
+          </Button>
+        </Link>
         <Input
           placeholder='Cari...'
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn('email')?.setFilterValue(event.target.value)
           }
-          className='max-w-sm'
+          className='max-w-sm ml-auto'
         />
       </div>
       <div className='rounded-md border'>
